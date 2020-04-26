@@ -32,7 +32,7 @@ pipeline  {
             }
             stage('Deploy Backend') {
                 steps {
-                    deploy adapters: [tomcat8(path: '', url: 'http://localhost:8000/')], contextPath: 'tasks-backend', war: 'target/tasks-backend.war'
+                    deploy adapters: [tomcat8(path: '', url: 'http://192.168.0.247:8080/')], contextPath: 'tasks-backend', war: 'target/tasks-backend.war'
                 }
             }
         }
@@ -40,4 +40,3 @@ pipeline  {
 
 
 
-//deploy adapters: [tomcat8(path: '', url: 'http://localhost:8000/')], contextPath: 'tasks-backend', war: 'target/tasks-backend.war'
