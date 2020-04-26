@@ -1,18 +1,19 @@
-pipeline {
+pipeline  {
         agent any
         stages {
-            stage('Build') {
+            stage('Build Backend') {
                 steps{
                     bat 'mvn clean package -DskipTests=true'
                 }
             } 
+            
             stage('Unit Tests') {
-                steps{
+                steps {
                     bat 'mvn test'
                 }
             }
-              stage('Sonar analisys') {
-                  environment {
+            stage('Sonar analisys') {
+                environment {
                       scannerHome = tool 'SONAR_SCANNER'
                   }
                 steps{
@@ -21,8 +22,9 @@ pipeline {
                     }
                 }
             }
-    }    }
+        }
 }
+
 
 
 
