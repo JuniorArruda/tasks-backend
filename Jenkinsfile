@@ -30,9 +30,15 @@ pipeline  {
                     }
                 }
             }
-            stage('Deploy Backend') {
+            /*stage('Deploy Backend') {
                 steps {
                     deploy adapters: [tomcat8(credentialsId: 'b237db0d-1be3-41b1-86a5-971d80450a24', path: '', url: 'http://192.168.0.247:8080/')], contextPath: 'tasks-backend', war: 'target/tasks-backend.war'
+                }
+            }*/
+            stage('API Test') {
+                steps {
+                    git 'https://github.com/JuniorArruda/tasks-api-test'
+                    bat 'mvn test'
                 }
             }
         }
