@@ -43,12 +43,20 @@ pipeline  {
                     }
                 }
             }
-             stage('Deploy Frontend') {
+             /*stage('Deploy Frontend') {
                 steps {
                     dir('frontend') {
                         git 'https://github.com/JuniorArruda/tasks-frontend'
                         bat 'mvn clean package'
                         deploy adapters: [tomcat8(credentialsId: 'b237db0d-1be3-41b1-86a5-971d80450a24', path: '', url: 'http://192.168.0.247:8080/')], contextPath: 'tasks', war: 'target/tasks.war'
+                    }
+                }
+            }*/
+            stage('Functional Test') {
+                steps {
+                    dir('functional-test') {
+                        git 'https://github.com/JuniorArruda/tasks-functional-test'
+                        bat 'mvn test'
                     }
                 }
             }
