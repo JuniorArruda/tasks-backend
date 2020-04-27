@@ -62,6 +62,7 @@ pipeline  {
             }
             stage('Deploy Production') {
                 steps {
+                    bat 'winscp.com betel:user549918@192.168.0.247 /script:winscpcmd.txt'
                     bat 'docker-compose build'
                     bat 'docker-compose up -d'
 

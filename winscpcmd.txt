@@ -1,0 +1,2 @@
+put Dockerfile /home/betel/
+put docker-compose.yml /home/betel/
