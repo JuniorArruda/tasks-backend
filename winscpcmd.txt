@@ -1,2 +1,5 @@
 put Dockerfile /home/betel/
 put docker-compose.yml /home/betel/
+call docker-compose build
+docker-compose up -d
+close
