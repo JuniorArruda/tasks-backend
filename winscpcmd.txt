@@ -1,5 +1,6 @@
 put Dockerfile /home/betel/
 put docker-compose.yml /home/betel/
+call BUILD_NUMBER=${BUILD_NUMBER}
 call docker-compose build
 docker-compose up -d
 close
