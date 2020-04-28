@@ -63,11 +63,10 @@ pipeline  {
             stage('Deploy Production') {
                 steps {
                     bat "winscp.com betel:user549918@192.168.0.247 /command 'call echo BUILD_NUMBER=${BUILD_NUMBER} > vars'"
-                    /*bat 'docker-compose build'
-                    bat 'docker-compose up -d'*/
+                    bat 'winscp.com betel:user549918@192.168.0.247 /script:winscpcmd.txt'
                 }
                  steps {
-                    bat 'winscp.com betel:user549918@192.168.0.247 /script:winscpcmd.txt'
+                    
                 }
             }
             stage('Health Check') {
