@@ -1,6 +1,6 @@
 put Dockerfile /home/betel/
 put docker-compose.yml /home/betel/
-call BUILD_NUMBER=${BUILD_NUMBER}
-call docker-compose build --build-arg BUILD_NUMBER=${BUILD_NUMBER}
+call source vars
+call docker-compose build --build-arg BUILD_NUMBER=$BUILD_NUMBER backend
 docker-compose up -d
 close
